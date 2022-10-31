@@ -8,17 +8,17 @@ document.addEventListener('play', function(e) {
     }
 }, true);
 $(document).ready(function() {
-    var url = "https://api-alquranid.herokuapp.com/surah/";
+    var url = "https://api-alquranid.herokuapp.com/surah.";
     tampildataall(url);
      $("#search-button").on("click",function(){
         clearForm()
         var namasurah =  $("#search-input").val()
     
         if (namasurah == "") {
-            url = "https://api-alquranid.herokuapp.com/surah";
+            url = "https://api-alquranid.herokuapp.com/surah.";
             tampildataall(url);
         }else{
-            url = "https://api-alquranid.herokuapp.com/surah/search/"+namasurah;
+            url = "https://api-alquranid.herokuapp.com/surah/search/"+namasurah+'.';
             tampildataall(url);
         }
     })
