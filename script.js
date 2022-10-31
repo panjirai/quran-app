@@ -8,17 +8,17 @@ document.addEventListener('play', function(e) {
     }
 }, true);
 $(document).ready(function() {
-    var url = "https://api-alquranid.herokuapp.com/surah.";
+    var url = "https://api-alquranid.herokuapp.com/surah/";
     tampildataall(url);
      $("#search-button").on("click",function(){
         clearForm()
         var namasurah =  $("#search-input").val()
     
         if (namasurah == "") {
-            url = "https://api-alquranid.herokuapp.com/surah.";
+            url = "https://api-alquranid.herokuapp.com/surah";
             tampildataall(url);
         }else{
-            url = "https://api-alquranid.herokuapp.com/surah/search/"+namasurah+'.';
+            url = "https://api-alquranid.herokuapp.com/surah/search/"+namasurah;
             tampildataall(url);
         }
     })
@@ -33,6 +33,7 @@ function tampildataall(url="") {
         type: "GET",
         url: url,
         dataType: 'json',
+        headers: { 'Access-Control-Allow-Origin': '*' },
         beforeSend: function() {
             $('#spinner-id').removeClass('collapse')
             $('#search-button').html(` <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
